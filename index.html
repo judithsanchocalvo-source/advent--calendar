@@ -2,64 +2,106 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Nuestro Calendario de Adviento ❤️</title>
 
+
 <style>
 
-/* ==============================
-   GENERAL
-============================== */
+/* =====================================================
+   AJUSTES GENERALES
+===================================================== */
 
 * {
     box-sizing: border-box;
 }
 
 body {
+
     margin: 0;
     min-height: 100vh;
 
     background:
-        radial-gradient(circle at top, #fffaf2 0%, #f5ecdf 55%, #eadfce 100%);
+        radial-gradient(
+            circle at top,
+            #fffaf2 0%,
+            #f5ecdf 55%,
+            #eadfce 100%
+        );
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     color: #49372f;
 }
 
+
+/* =====================================================
+   PÁGINA
+===================================================== */
+
 .page {
+
     width: 94%;
+
     max-width: 1050px;
+
     margin: auto;
-    padding: 35px 15px 60px;
+
+    padding:
+        35px 15px
+        60px;
 }
 
 
-/* ==============================
+/* =====================================================
    CABECERA
-============================== */
+===================================================== */
 
 header {
+
     text-align: center;
+
     margin-bottom: 30px;
 }
 
+
 header h1 {
+
     margin: 0;
 
     color: #a72525;
 
-    font-size: clamp(35px, 6vw, 58px);
+    font-size:
+        clamp(
+            35px,
+            6vw,
+            58px
+        );
+
     font-weight: normal;
+
     line-height: 1.1;
 }
 
+
 .title-star {
+
     color: #d2a344;
 }
 
+
 .subtitle {
+
     margin-top: 14px;
 
     color: #6f5c51;
@@ -67,18 +109,35 @@ header h1 {
     font-size: 15px;
 }
 
+
 .heart {
+
     color: #c73535;
 }
 
 
-/* ==============================
+/* pequeña indicación */
+
+.instructions {
+
+    margin-top: 9px;
+
+    font-size: 12px;
+
+    color: #977f70;
+
+    font-style: italic;
+}
+
+
+/* =====================================================
    MARCO EXTERIOR
-============================== */
+===================================================== */
 
 .calendar-frame {
 
     max-width: 900px;
+
     margin: auto;
 
     padding: 13px;
@@ -93,20 +152,25 @@ header h1 {
         );
 
     box-shadow:
-        0 14px 28px rgba(73, 43, 31, 0.25),
-        inset 0 0 0 2px rgba(255,255,255,0.10);
+
+        0 14px 28px
+        rgba(73,43,31,0.25),
+
+        inset 0 0 0 2px
+        rgba(255,255,255,0.10);
 }
 
 
-/* ==============================
+/* =====================================================
    CUADRÍCULA
-============================== */
+===================================================== */
 
 .calendar {
 
     display: grid;
 
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns:
+        repeat(6,1fr);
 
     gap: 8px;
 
@@ -116,9 +180,9 @@ header h1 {
 }
 
 
-/* ==============================
+/* =====================================================
    PUERTAS
-============================== */
+===================================================== */
 
 .door {
 
@@ -127,30 +191,44 @@ header h1 {
     aspect-ratio: 1 / 1;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     overflow: hidden;
 
     cursor: pointer;
 
-    border: 2px solid rgba(76, 37, 27, 0.45);
+    border:
+
+        2px solid
+        rgba(76,37,27,0.45);
 
     border-radius: 3px;
 
     box-shadow:
-        inset 0 0 0 3px rgba(255,255,255,0.08),
-        inset 0 -15px 25px rgba(0,0,0,0.05),
-        0 2px 3px rgba(0,0,0,0.25);
+
+        inset 0 0 0 3px
+        rgba(255,255,255,0.08),
+
+        inset 0 -15px 25px
+        rgba(0,0,0,0.05),
+
+        0 2px 3px
+        rgba(0,0,0,0.25);
 
     transition:
-        transform 0.22s ease,
-        filter 0.22s ease,
-        box-shadow 0.22s ease;
+
+        transform .22s ease,
+
+        filter .22s ease,
+
+        box-shadow .22s ease;
 }
 
 
-/* borde interior */
+/* marco interior */
 
 .door::after {
 
@@ -164,13 +242,15 @@ header h1 {
     left: 6px;
 
     border:
-        1px solid rgba(255,255,255,0.17);
+
+        1px solid
+        rgba(255,255,255,0.17);
 
     pointer-events: none;
 }
 
 
-/* muesca superior */
+/* muesca */
 
 .door::before {
 
@@ -179,109 +259,146 @@ header h1 {
     position: absolute;
 
     top: -1px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 38px;
+
     height: 17px;
 
-    background: #721818;
+    background:
+        #721818;
 
-    border-radius: 0 0 24px 24px;
+    border-radius:
+        0 0 24px 24px;
 
     z-index: 5;
 }
 
 
-/* efecto al pasar el ratón */
+/* hover */
 
 .door:hover {
 
     transform:
+
         translateY(-4px)
+
         scale(1.025);
 
-    filter: brightness(1.06);
+    filter:
+        brightness(1.06);
 
     box-shadow:
-        inset 0 0 0 3px rgba(255,255,255,0.10),
-        0 9px 14px rgba(47,26,19,0.30);
+
+        inset 0 0 0 3px
+        rgba(255,255,255,0.10),
+
+        0 9px 14px
+        rgba(47,26,19,0.30);
 
     z-index: 20;
 }
 
 
-/* ==============================
+/* =====================================================
    COLORES
-============================== */
+===================================================== */
 
 .red {
+
     background: #c52d29;
+
     color: #fff9ed;
 }
+
 
 .darkred {
+
     background: #a32524;
+
     color: #fff9ed;
 }
+
 
 .green {
+
     background: #779269;
+
     color: #fff9ed;
 }
+
 
 .forest {
+
     background: #286144;
+
     color: #fff9ed;
 }
+
 
 .mint {
+
     background: #a8d4cf;
+
     color: #ae2929;
 }
+
 
 .cream {
+
     background: #eee7d8;
+
     color: #ae2929;
 }
 
+
 .grey {
+
     background: #aaa69e;
+
     color: #fff9ed;
 }
+
 
 .charcoal {
+
     background: #4e5958;
+
     color: #fff9ed;
 }
 
 
-/* ==============================
+/* =====================================================
    NÚMEROS
-============================== */
+===================================================== */
 
 .number {
 
     position: absolute;
 
     top: 11px;
+
     right: 11px;
 
     z-index: 8;
 
-    font-family: Georgia, serif;
-
     font-size: 25px;
 
     text-shadow:
-        0 1px 2px rgba(0,0,0,0.12);
+
+        0 1px 2px
+
+        rgba(0,0,0,0.12);
 }
 
 
-/* ==============================
+/* =====================================================
    ICONOS
-============================== */
+===================================================== */
 
 .icon {
 
@@ -292,8 +409,10 @@ header h1 {
     font-size: 42px;
 
     filter:
+
         drop-shadow(
-            0 2px 1px rgba(0,0,0,0.10)
+            0 2px 1px
+            rgba(0,0,0,0.10)
         );
 
     transition:
@@ -302,23 +421,27 @@ header h1 {
     user-select: none;
 }
 
+
 .door:hover .icon {
 
     transform:
+
         scale(1.15)
+
         rotate(-2deg);
 }
 
 
-/* ==============================
-   DETALLES DECORATIVOS
-============================== */
+/* =====================================================
+   DETALLES
+===================================================== */
 
 .decoration {
 
     position: absolute;
 
     bottom: 9px;
+
     left: 10px;
 
     z-index: 3;
@@ -331,23 +454,6 @@ header h1 {
     letter-spacing: 4px;
 }
 
-.top-decoration {
-
-    position: absolute;
-
-    top: 12px;
-    left: 10px;
-
-    font-size: 9px;
-
-    color:
-        rgba(255,255,255,0.62);
-
-    letter-spacing: 3px;
-}
-
-
-/* puertas claras necesitan decoración diferente */
 
 .cream .decoration,
 .mint .decoration {
@@ -357,19 +463,20 @@ header h1 {
 }
 
 
-/* ==============================
-   PUERTA 24 ESPECIAL
-   MISMO TAMAÑO
-============================== */
+/* =====================================================
+   PUERTA 24
+===================================================== */
 
 .door24 {
 
     background:
+
         radial-gradient(
             circle at 50% 55%,
             rgba(255,255,255,0.45),
             transparent 58%
         ),
+
         #eee1c6;
 
     color: #a92323;
@@ -378,15 +485,22 @@ header h1 {
         rgba(176,129,50,0.65);
 
     box-shadow:
-        inset 0 0 0 3px rgba(206,166,86,0.18),
-        0 2px 3px rgba(0,0,0,0.25);
+
+        inset 0 0 0 3px
+        rgba(206,166,86,0.18),
+
+        0 2px 3px
+        rgba(0,0,0,0.25);
 }
+
 
 .door24::after {
 
     border-color:
+
         rgba(189,146,65,0.38);
 }
+
 
 .door24 .number {
 
@@ -395,10 +509,12 @@ header h1 {
     font-size: 28px;
 }
 
+
 .door24 .icon {
 
     font-size: 48px;
 }
+
 
 .door24 .decoration {
 
@@ -406,9 +522,374 @@ header h1 {
 }
 
 
-/* ==============================
+/* =====================================================
+   PUERTAS ABIERTAS
+===================================================== */
+
+.door.opened::after {
+
+    border-color:
+        rgba(255,230,169,0.65);
+}
+
+
+.open-mark {
+
+    position: absolute;
+
+    top: 10px;
+
+    left: 10px;
+
+    z-index: 9;
+
+    width: 21px;
+
+    height: 21px;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.85);
+
+    color: #7c201f;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.door.opened .open-mark {
+
+    display: flex;
+}
+
+
+/* =====================================================
+   BLOQUEADAS
+===================================================== */
+
+.door.locked {
+
+    filter:
+        saturate(.6)
+        brightness(.78);
+
+    cursor:
+        not-allowed;
+}
+
+
+.door.locked:hover {
+
+    transform: none;
+
+    filter:
+        saturate(.6)
+        brightness(.83);
+}
+
+
+.lock {
+
+    position: absolute;
+
+    left: 10px;
+
+    bottom: 9px;
+
+    z-index: 10;
+
+    display: none;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+}
+
+
+.door.locked .lock {
+
+    display: block;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(39,22,18,0.70);
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+/* tarjeta */
+
+.modal-card {
+
+    position: relative;
+
+    width: min(92vw, 500px);
+
+    max-height: 86vh;
+
+    overflow-y: auto;
+
+    padding:
+        48px 42px
+        37px;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            #fffef9,
+            #f5ecdd
+        );
+
+    border:
+
+        7px solid
+        #9f2525;
+
+    outline:
+
+        2px solid
+        #d4a655;
+
+    outline-offset:
+        -14px;
+
+    border-radius: 6px;
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(0,0,0,0.38);
+
+    animation:
+        openCard .35s ease;
+}
+
+
+@keyframes openCard {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.86)
+            translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* cerrar */
+
+.close-button {
+
+    position: absolute;
+
+    top: 13px;
+
+    right: 16px;
+
+    border: none;
+
+    background: none;
+
+    color: #9e2928;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+/* día */
+
+.modal-date {
+
+    margin-bottom: 12px;
+
+    color: #a32726;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+
+/* icono */
+
+.modal-icon {
+
+    margin:
+        10px 0;
+
+    font-size: 58px;
+}
+
+
+/* título */
+
+.modal-title {
+
+    margin:
+        9px 0 15px;
+
+    color:
+        #76211f;
+
+    font-size: 29px;
+
+    font-weight: normal;
+}
+
+
+/* mensaje */
+
+.modal-message {
+
+    margin:
+        0 auto 22px;
+
+    max-width: 390px;
+
+    color: #55463d;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+}
+
+
+/* adorno */
+
+.modal-decoration {
+
+    margin:
+        19px 0;
+
+    color: #c39a51;
+
+    letter-spacing: 8px;
+
+    font-size: 12px;
+}
+
+
+/* botón */
+
+.modal-button {
+
+    margin-top: 5px;
+
+    padding:
+        10px 27px;
+
+    border:
+
+        1px solid
+        #962725;
+
+    border-radius: 50px;
+
+    background:
+        #a42b29;
+
+    color: #fff9ef;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease;
+}
+
+
+.modal-button:hover {
+
+    background:
+        #84201f;
+}
+
+
+/* =====================================================
+   MODAL BLOQUEADO
+===================================================== */
+
+.locked-modal
+.modal-icon {
+
+    font-size: 48px;
+}
+
+
+/* =====================================================
    FOOTER
-============================== */
+===================================================== */
 
 footer {
 
@@ -426,26 +907,25 @@ footer {
 }
 
 
-/* ==============================
+/* =====================================================
    TABLET
-============================== */
+===================================================== */
 
-@media(max-width: 800px) {
+@media(max-width:800px) {
 
     .calendar {
 
         grid-template-columns:
-            repeat(4, 1fr);
+            repeat(4,1fr);
     }
-
 }
 
 
-/* ==============================
+/* =====================================================
    MÓVIL
-============================== */
+===================================================== */
 
-@media(max-width: 520px) {
+@media(max-width:520px) {
 
     .page {
 
@@ -456,65 +936,99 @@ footer {
             45px;
     }
 
+
     header h1 {
 
         font-size: 34px;
     }
+
 
     .subtitle {
 
         font-size: 13px;
     }
 
+
     .calendar-frame {
 
         padding: 7px;
     }
 
+
     .calendar {
 
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(3,1fr);
 
         gap: 5px;
 
         padding: 5px;
     }
 
+
     .number {
 
         top: 9px;
+
         right: 9px;
 
         font-size: 20px;
     }
+
 
     .icon {
 
         font-size: 31px;
     }
 
+
     .door24 .icon {
 
         font-size: 36px;
     }
 
+
     .door::before {
 
         width: 29px;
+
         height: 13px;
     }
+
 
     .decoration {
 
         font-size: 7px;
+
         letter-spacing: 2px;
+    }
+
+
+    .modal-card {
+
+        padding:
+            45px 25px
+            30px;
+    }
+
+
+    .modal-title {
+
+        font-size: 25px;
+    }
+
+
+    .modal-message {
+
+        font-size: 16px;
     }
 
 }
 
 </style>
+
 </head>
+
 
 
 <body>
@@ -522,403 +1036,1114 @@ footer {
 <div class="page">
 
 
-    <!-- TÍTULO -->
+<header>
 
-    <header>
+    <h1>
+        Nuestro Calendario de Adviento
+        <span class="title-star">✦</span>
+    </h1>
 
-        <h1>
-            Nuestro Calendario de Adviento
-            <span class="title-star">✦</span>
-        </h1>
+    <p class="subtitle">
 
-        <p class="subtitle">
-            24 días · 24 pequeñas sorpresas para ti
-            <span class="heart">♥</span>
-        </p>
+        24 días · 24 pequeñas sorpresas para ti
 
-    </header>
+        <span class="heart">♥</span>
 
+    </p>
 
-    <!-- CALENDARIO -->
+    <p class="instructions">
 
-    <div class="calendar-frame">
+        Una puerta cada día.
+        No vale adelantarse...
 
-        <div class="calendar">
+    </p>
 
+</header>
 
-            <!-- DÍA 1 -->
 
-            <div class="door red">
 
-                <span class="number">1</span>
+<div class="calendar-frame">
 
-                <span class="icon">⛄</span>
+<div class="calendar">
 
-                <span class="decoration">
-                    ✦ ❄ ·
-                </span>
 
-            </div>
+<div class="door red" data-day="1">
 
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">1</span>
+    <span class="icon">⛄</span>
+    <span class="decoration">✦ ❄ ·</span>
 
-            <!-- DÍA 2 -->
+</div>
 
-            <div class="door mint">
 
-                <span class="number">2</span>
+<div class="door mint" data-day="2">
 
-                <span class="icon">❄️</span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">2</span>
+    <span class="icon">❄️</span>
+    <span class="decoration">· ✦ ·</span>
 
-                <span class="decoration">
-                    · ✦ ·
-                </span>
+</div>
 
-            </div>
 
+<div class="door grey" data-day="3">
 
-            <!-- DÍA 3 -->
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">3</span>
+    <span class="icon">🦌</span>
+    <span class="decoration">❄ · ✦</span>
 
-            <div class="door grey">
+</div>
 
-                <span class="number">3</span>
 
-                <span class="icon">🦌</span>
+<div class="door green" data-day="4">
 
-                <span class="decoration">
-                    ❄ · ✦
-                </span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">4</span>
+    <span class="icon">🌲</span>
+    <span class="decoration">✦ · ❄</span>
 
-            </div>
+</div>
 
 
-            <!-- DÍA 4 -->
+<div class="door mint" data-day="5">
 
-            <div class="door green">
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">5</span>
+    <span class="icon">🎄</span>
+    <span class="decoration">❄ · ·</span>
 
-                <span class="number">4</span>
+</div>
 
-                <span class="icon">🌲</span>
 
-                <span class="decoration">
-                    ✦ · ❄
-                </span>
+<div class="door forest" data-day="6">
 
-            </div>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">6</span>
+    <span class="icon">🍬</span>
+    <span class="decoration">✦ ❄ ✦</span>
 
+</div>
 
-            <!-- DÍA 5 -->
 
-            <div class="door mint">
+<div class="door grey" data-day="7">
 
-                <span class="number">5</span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">7</span>
+    <span class="icon">🧦</span>
+    <span class="decoration">· ❄ ·</span>
 
-                <span class="icon">🎄</span>
+</div>
 
-                <span class="decoration">
-                    ❄ · ·
-                </span>
 
-            </div>
+<div class="door red" data-day="8">
 
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">8</span>
+    <span class="icon">🧁</span>
+    <span class="decoration">✦ ❄ ✦</span>
 
-            <!-- DÍA 6 -->
+</div>
 
-            <div class="door forest">
 
-                <span class="number">6</span>
+<div class="door cream" data-day="9">
 
-                <span class="icon">🍬</span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">9</span>
+    <span class="icon">🐦</span>
+    <span class="decoration">· ✦ ·</span>
 
-                <span class="decoration">
-                    ✦ ❄ ✦
-                </span>
+</div>
 
-            </div>
 
+<div class="door cream" data-day="10">
 
-            <!-- DÍA 7 -->
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">10</span>
+    <span class="icon">🦌</span>
+    <span class="decoration">❄ · ✦</span>
 
-            <div class="door grey">
+</div>
 
-                <span class="number">7</span>
 
-                <span class="icon">🧦</span>
+<div class="door grey" data-day="11">
 
-                <span class="decoration">
-                    · ❄ ·
-                </span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">11</span>
+    <span class="icon">🌲</span>
+    <span class="decoration">✦ · ❄</span>
 
-            </div>
+</div>
 
 
-            <!-- DÍA 8 -->
+<div class="door mint" data-day="12">
 
-            <div class="door red">
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">12</span>
+    <span class="icon">🎄</span>
+    <span class="decoration">❄ ✦ ❄</span>
 
-                <span class="number">8</span>
+</div>
 
-                <span class="icon">🧁</span>
 
-                <span class="decoration">
-                    ✦ ❄ ✦
-                </span>
+<div class="door red" data-day="13">
 
-            </div>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">13</span>
+    <span class="icon">⛄</span>
+    <span class="decoration">· ❄ ✦</span>
 
+</div>
 
-            <!-- DÍA 9 -->
 
-            <div class="door cream">
+<div class="door cream" data-day="14">
 
-                <span class="number">9</span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">14</span>
+    <span class="icon">🌿</span>
+    <span class="decoration">✦ · ✦</span>
 
-                <span class="icon">🐦</span>
+</div>
 
-                <span class="decoration">
-                    · ✦ ·
-                </span>
 
-            </div>
+<div class="door green" data-day="15">
 
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">15</span>
+    <span class="icon">🏠</span>
+    <span class="decoration">❄ · ❄</span>
 
-            <!-- DÍA 10 -->
+</div>
 
-            <div class="door cream">
 
-                <span class="number">10</span>
+<div class="door red" data-day="16">
 
-                <span class="icon">🦌</span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">16</span>
+    <span class="icon">🎄</span>
+    <span class="decoration">✦ ❄ ·</span>
 
-                <span class="decoration">
-                    ❄ · ✦
-                </span>
+</div>
 
-            </div>
 
+<div class="door grey" data-day="17">
 
-            <!-- DÍA 11 -->
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">17</span>
+    <span class="icon">🎀</span>
+    <span class="decoration">· ✦ ·</span>
 
-            <div class="door grey">
+</div>
 
-                <span class="number">11</span>
 
-                <span class="icon">🌲</span>
+<div class="door mint" data-day="18">
 
-                <span class="decoration">
-                    ✦ · ❄
-                </span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">18</span>
+    <span class="icon">🌲</span>
+    <span class="decoration">❄ ✦ ❄</span>
 
-            </div>
+</div>
 
 
-            <!-- DÍA 12 -->
+<div class="door green" data-day="19">
 
-            <div class="door mint">
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">19</span>
+    <span class="icon">🔔</span>
+    <span class="decoration">✦ · ❄</span>
 
-                <span class="number">12</span>
+</div>
 
-                <span class="icon">🎄</span>
 
-                <span class="decoration">
-                    ❄ ✦ ❄
-                </span>
+<div class="door cream" data-day="20">
 
-            </div>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">20</span>
+    <span class="icon">🎁</span>
+    <span class="decoration">· ✦ ·</span>
 
+</div>
 
-            <!-- DÍA 13 -->
 
-            <div class="door red">
+<div class="door charcoal" data-day="21">
 
-                <span class="number">13</span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">21</span>
+    <span class="icon">⭐</span>
+    <span class="decoration">✦ ❄ ✦</span>
 
-                <span class="icon">⛄</span>
+</div>
 
-                <span class="decoration">
-                    · ❄ ✦
-                </span>
 
-            </div>
+<div class="door forest" data-day="22">
 
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">22</span>
+    <span class="icon">🎅🏻</span>
+    <span class="decoration">❄ · ✦</span>
 
-            <!-- DÍA 14 -->
+</div>
 
-            <div class="door cream">
 
-                <span class="number">14</span>
+<div class="door mint" data-day="23">
 
-                <span class="icon">🌿</span>
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">23</span>
+    <span class="icon">🧝</span>
+    <span class="decoration">✦ · ❄</span>
 
-                <span class="decoration">
-                    ✦ · ✦
-                </span>
+</div>
 
-            </div>
 
+<div
+    class="door door24"
+    data-day="24"
+>
 
-            <!-- DÍA 15 -->
+    <span class="open-mark">✓</span>
+    <span class="lock">🔒</span>
+    <span class="number">24</span>
+    <span class="icon">🎅🏻</span>
+    <span class="decoration">✦ ❄ ✦</span>
 
-            <div class="door green">
+</div>
 
-                <span class="number">15</span>
 
-                <span class="icon">🏠</span>
+</div>
 
-                <span class="decoration">
-                    ❄ · ❄
-                </span>
+</div>
 
-            </div>
 
 
-            <!-- DÍA 16 -->
+<footer>
 
-            <div class="door red">
+    Hecho con ♥ especialmente para ti
 
-                <span class="number">16</span>
+</footer>
 
-                <span class="icon">🎄</span>
 
-                <span class="decoration">
-                    ✦ ❄ ·
-                </span>
+</div>
 
-            </div>
 
 
-            <!-- DÍA 17 -->
+<!-- =================================================
+     VENTANA DE SORPRESA
+================================================== -->
 
-            <div class="door grey">
+<div
+    class="modal"
+    id="surpriseModal"
+>
 
-                <span class="number">17</span>
+<div class="modal-card">
 
-                <span class="icon">🎀</span>
+    <button
+        class="close-button"
+        id="closeModal"
+        aria-label="Cerrar"
+    >
+        ×
+    </button>
 
-                <span class="decoration">
-                    · ✦ ·
-                </span>
 
-            </div>
+    <div
+        class="modal-date"
+        id="modalDate"
+    >
+        1 de diciembre
+    </div>
 
 
-            <!-- DÍA 18 -->
+    <div
+        class="modal-icon"
+        id="modalIcon"
+    >
+        🎄
+    </div>
 
-            <div class="door mint">
 
-                <span class="number">18</span>
+    <h2
+        class="modal-title"
+        id="modalTitle"
+    >
+        Tu sorpresa
+    </h2>
 
-                <span class="icon">🌲</span>
 
-                <span class="decoration">
-                    ❄ ✦ ❄
-                </span>
+    <div class="modal-decoration">
 
-            </div>
-
-
-            <!-- DÍA 19 -->
-
-            <div class="door green">
-
-                <span class="number">19</span>
-
-                <span class="icon">🔔</span>
-
-                <span class="decoration">
-                    ✦ · ❄
-                </span>
-
-            </div>
-
-
-            <!-- DÍA 20 -->
-
-            <div class="door cream">
-
-                <span class="number">20</span>
-
-                <span class="icon">🎁</span>
-
-                <span class="decoration">
-                    · ✦ ·
-                </span>
-
-            </div>
-
-
-            <!-- DÍA 21 -->
-
-            <div class="door charcoal">
-
-                <span class="number">21</span>
-
-                <span class="icon">⭐</span>
-
-                <span class="decoration">
-                    ✦ ❄ ✦
-                </span>
-
-            </div>
-
-
-            <!-- DÍA 22 -->
-
-            <div class="door forest">
-
-                <span class="number">22</span>
-
-                <span class="icon">🎅🏻</span>
-
-                <span class="decoration">
-                    ❄ · ✦
-                </span>
-
-            </div>
-
-
-            <!-- DÍA 23 -->
-
-            <div class="door mint">
-
-                <span class="number">23</span>
-
-                <span class="icon">🧝</span>
-
-                <span class="decoration">
-                    ✦ · ❄
-                </span>
-
-            </div>
-
-
-            <!-- DÍA 24 -->
-
-            <div class="door door24">
-
-                <span class="number">24</span>
-
-                <span class="icon">🎅🏻</span>
-
-                <span class="decoration">
-                    ✦ ❄ ✦
-                </span>
-
-            </div>
-
-
-        </div>
+        ✦ ❄ ✦
 
     </div>
 
 
-    <footer>
+    <p
+        class="modal-message"
+        id="modalMessage"
+    >
+        Aquí aparecerá tu sorpresa.
+    </p>
 
-        Hecho con ♥ especialmente para ti
 
-    </footer>
-
+    <button
+        class="modal-button"
+        id="closeBottom"
+    >
+        Cerrar
+    </button>
 
 </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   CONFIGURACIÓN DEL CALENDARIO
+===================================================== */
+
+
+/*
+IMPORTANTE:
+
+Mientras estamos creando y probando el calendario:
+
+TEST_MODE = true
+
+Esto permite abrir TODAS las puertas.
+
+Cuando el calendario esté terminado cambiaremos:
+
+true
+
+por:
+
+false
+
+Y entonces cada puerta se desbloqueará
+automáticamente según la fecha.
+*/
+
+
+const TEST_MODE = true;
+
+
+/*
+Año del calendario.
+
+Tu calendario será para diciembre de 2026.
+*/
+
+const CALENDAR_YEAR = 2026;
+
+
+
+/* =====================================================
+   CONTENIDO DE LAS 24 SORPRESAS
+===================================================== */
+
+
+/*
+Aquí será donde personalizaremos TODO.
+
+Puedes cambiar:
+
+icon
+title
+message
+
+de cada día.
+*/
+
+
+const surprises = {
+
+
+1: {
+
+    icon: "❤️",
+
+    title: "Empezamos",
+
+    message:
+`Primera sorpresa de este pequeño calendario.
+
+Durante los próximos 24 días habrá algo esperándote aquí cada día.
+
+Y no vale adelantarse... ❤️`
+
+},
+
+
+2: {
+
+    icon: "❄️",
+
+    title: "Día 2",
+
+    message:
+`Esta será la sorpresa del día 2.
+
+Muy pronto pondremos aquí tu mensaje personalizado.`
+
+},
+
+
+3: {
+
+    icon: "🦌",
+
+    title: "Día 3",
+
+    message:
+`Aquí irá la sorpresa del 3 de diciembre.`
+
+},
+
+
+4: {
+
+    icon: "🌲",
+
+    title: "Día 4",
+
+    message:
+`Aquí irá la sorpresa del 4 de diciembre.`
+
+},
+
+
+5: {
+
+    icon: "🎄",
+
+    title: "Día 5",
+
+    message:
+`Aquí irá la sorpresa del 5 de diciembre.`
+
+},
+
+
+6: {
+
+    icon: "🍬",
+
+    title: "Día 6",
+
+    message:
+`Aquí irá la sorpresa del 6 de diciembre.`
+
+},
+
+
+7: {
+
+    icon: "🧦",
+
+    title: "Día 7",
+
+    message:
+`Aquí irá la sorpresa del 7 de diciembre.`
+
+},
+
+
+8: {
+
+    icon: "🧁",
+
+    title: "Día 8",
+
+    message:
+`Aquí irá la sorpresa del 8 de diciembre.`
+
+},
+
+
+9: {
+
+    icon: "🐦",
+
+    title: "Día 9",
+
+    message:
+`Aquí irá la sorpresa del 9 de diciembre.`
+
+},
+
+
+10: {
+
+    icon: "🦌",
+
+    title: "Día 10",
+
+    message:
+`Aquí irá la sorpresa del 10 de diciembre.`
+
+},
+
+
+11: {
+
+    icon: "🌲",
+
+    title: "Día 11",
+
+    message:
+`Aquí irá la sorpresa del 11 de diciembre.`
+
+},
+
+
+12: {
+
+    icon: "🎄",
+
+    title: "Día 12",
+
+    message:
+`Aquí irá la sorpresa del 12 de diciembre.`
+
+},
+
+
+13: {
+
+    icon: "⛄",
+
+    title: "Día 13",
+
+    message:
+`Aquí irá la sorpresa del 13 de diciembre.`
+
+},
+
+
+14: {
+
+    icon: "🌿",
+
+    title: "Día 14",
+
+    message:
+`Aquí irá la sorpresa del 14 de diciembre.`
+
+},
+
+
+15: {
+
+    icon: "🏠",
+
+    title: "Día 15",
+
+    message:
+`Aquí irá la sorpresa del 15 de diciembre.`
+
+},
+
+
+16: {
+
+    icon: "🎄",
+
+    title: "Día 16",
+
+    message:
+`Aquí irá la sorpresa del 16 de diciembre.`
+
+},
+
+
+17: {
+
+    icon: "🎀",
+
+    title: "Día 17",
+
+    message:
+`Aquí irá la sorpresa del 17 de diciembre.`
+
+},
+
+
+18: {
+
+    icon: "🌲",
+
+    title: "Día 18",
+
+    message:
+`Aquí irá la sorpresa del 18 de diciembre.`
+
+},
+
+
+19: {
+
+    icon: "🔔",
+
+    title: "Día 19",
+
+    message:
+`Aquí irá la sorpresa del 19 de diciembre.`
+
+},
+
+
+20: {
+
+    icon: "🎁",
+
+    title: "Día 20",
+
+    message:
+`Aquí irá la sorpresa del 20 de diciembre.`
+
+},
+
+
+21: {
+
+    icon: "⭐",
+
+    title: "Día 21",
+
+    message:
+`Aquí irá la sorpresa del 21 de diciembre.`
+
+},
+
+
+22: {
+
+    icon: "🎅🏻",
+
+    title: "Día 22",
+
+    message:
+`Aquí irá la sorpresa del 22 de diciembre.`
+
+},
+
+
+23: {
+
+    icon: "🧝",
+
+    title: "Día 23",
+
+    message:
+`Mañana llega la última puerta...
+
+Pero todavía queda esta pequeña sorpresa para ti. ❤️`
+
+},
+
+
+24: {
+
+    icon: "🎁",
+
+    title: "Feliz Navidad ❤️",
+
+    message:
+`Has llegado hasta la última puerta.
+
+Aquí pondremos algo especial para terminar el calendario.
+
+Feliz Navidad ❤️`
+
+}
+
+};
+
+
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const modal =
+    document.getElementById(
+        "surpriseModal"
+    );
+
+const modalDate =
+    document.getElementById(
+        "modalDate"
+    );
+
+const modalIcon =
+    document.getElementById(
+        "modalIcon"
+    );
+
+const modalTitle =
+    document.getElementById(
+        "modalTitle"
+    );
+
+const modalMessage =
+    document.getElementById(
+        "modalMessage"
+    );
+
+const closeModal =
+    document.getElementById(
+        "closeModal"
+    );
+
+const closeBottom =
+    document.getElementById(
+        "closeBottom"
+    );
+
+const doors =
+    document.querySelectorAll(
+        ".door"
+    );
+
+
+
+/* =====================================================
+   COMPROBAR SI UNA PUERTA PUEDE ABRIRSE
+===================================================== */
+
+function canOpenDoor(day) {
+
+
+    /* modo pruebas */
+
+    if (TEST_MODE) {
+
+        return true;
+    }
+
+
+    const today =
+        new Date();
+
+
+    const unlockDate =
+        new Date(
+            CALENDAR_YEAR,
+            11,
+            day,
+            0,
+            0,
+            0
+        );
+
+
+    return today >= unlockDate;
+
+}
+
+
+
+/* =====================================================
+   ACTUALIZAR PUERTAS BLOQUEADAS
+===================================================== */
+
+function updateDoors() {
+
+
+    doors.forEach(door => {
+
+
+        const day =
+            Number(
+                door.dataset.day
+            );
+
+
+        const allowed =
+            canOpenDoor(day);
+
+
+        if (!allowed) {
+
+            door.classList.add(
+                "locked"
+            );
+
+        }
+
+        else {
+
+            door.classList.remove(
+                "locked"
+            );
+
+        }
+
+
+        /*
+        Recuperamos qué puertas ya
+        ha abierto la persona.
+        */
+
+        const opened =
+            localStorage.getItem(
+                "advent-door-" + day
+            );
+
+
+        if (opened === "opened") {
+
+            door.classList.add(
+                "opened"
+            );
+
+        }
+
+    });
+
+}
+
+
+
+/* =====================================================
+   ABRIR PUERTA
+===================================================== */
+
+function openDoor(day) {
+
+
+    /*
+    Si aún no puede abrirse
+    */
+
+    if (!canOpenDoor(day)) {
+
+
+        modalDate.textContent =
+            day + " de diciembre";
+
+
+        modalIcon.textContent =
+            "🔒";
+
+
+        modalTitle.textContent =
+            "Todavía no...";
+
+
+        modalMessage.textContent =
+            "Un poquito de paciencia. Esta sorpresa se podrá abrir el " +
+            day +
+            " de diciembre ❤️";
+
+
+        modal.classList.add(
+            "show"
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+    Recuperamos contenido
+    */
+
+    const surprise =
+        surprises[day];
+
+
+    modalDate.textContent =
+        day + " de diciembre";
+
+
+    modalIcon.textContent =
+        surprise.icon;
+
+
+    modalTitle.textContent =
+        surprise.title;
+
+
+    modalMessage.textContent =
+        surprise.message;
+
+
+    /*
+    Guardamos que esa puerta
+    ya ha sido abierta.
+    */
+
+    localStorage.setItem(
+
+        "advent-door-" + day,
+
+        "opened"
+
+    );
+
+
+    const door =
+        document.querySelector(
+            '[data-day="' + day + '"]'
+        );
+
+
+    door.classList.add(
+        "opened"
+    );
+
+
+    modal.classList.add(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
+   EVENTOS DE LAS PUERTAS
+===================================================== */
+
+doors.forEach(door => {
+
+
+    door.addEventListener(
+        "click",
+        function() {
+
+
+            const day =
+                Number(
+                    this.dataset.day
+                );
+
+
+            openDoor(day);
+
+        }
+    );
+
+});
+
+
+
+/* =====================================================
+   CERRAR MODAL
+===================================================== */
+
+function hideModal() {
+
+    modal.classList.remove(
+        "show"
+    );
+
+}
+
+
+closeModal.addEventListener(
+
+    "click",
+
+    hideModal
+
+);
+
+
+closeBottom.addEventListener(
+
+    "click",
+
+    hideModal
+
+);
+
+
+/*
+Cerrar pulsando fuera
+de la tarjeta.
+*/
+
+modal.addEventListener(
+
+    "click",
+
+    function(event) {
+
+
+        if (event.target === modal) {
+
+            hideModal();
+
+        }
+
+    }
+
+);
+
+
+/*
+Cerrar con tecla ESC.
+*/
+
+document.addEventListener(
+
+    "keydown",
+
+    function(event) {
+
+
+        if (event.key === "Escape") {
+
+            hideModal();
+
+        }
+
+    }
+
+);
+
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+updateDoors();
+
+</script>
+
 
 </body>
 
