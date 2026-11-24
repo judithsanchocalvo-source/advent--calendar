@@ -2219,90 +2219,98 @@ function clearQuiz() {
 
 function showQuiz(quiz) {
 
-    *learQuiz();
+    clearQuiz();
 
     if (!quiz) {
-    *   return;
+        return;
     }
 
-    quizContaine*.classList.add(
-        "show-quiz*
+    quizContainer.classList.add(
+        "show-quiz"
     );
 
-    quizQuestion.textCont*nt =
+    quizQuestion.textContent =
         quiz.question;
 
-    c*nst letters =
+    const letters =
         ["A", "B", "C", "D"];
 
-    quiz.options.forEach*
-        function(option, index) {*
-            const button =
-      *         document.createElement(
- *                  "button"
-       *        );
+    quiz.options.forEach(
+        function(option, index) {
 
-            button.typ* =
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.type =
                 "button";
 
-    *       button.className =
-        *       "quiz-option";
+            button.className =
+                "quiz-option";
 
-           *button.textContent =
-             *  letters[index] +
-               *") " +
+            button.textContent =
+                letters[index] +
+                ") " +
                 option;
 
-  *         button.addEventListener(
-*               "click",
-          *     function() {
+            button.addEventListener(
+                "click",
+                function() {
 
-               *    const allButtons =
-           *            quizOptions.querySelec*orAll(
-                           *".quiz-option"
-                   *    );
+                    const allButtons =
+                        quizOptions.querySelectorAll(
+                            ".quiz-option"
+                        );
 
-                    if (in*ex === quiz.correct) {
+                    if (index === quiz.correct) {
 
-          *             button.classList.add(*                            "corre*t-answer"
-                        *;
+                        button.classList.add(
+                            "correct-answer"
+                        );
 
-                        allButt*ns.forEach(
-                      *     function(optionButton) {
+                        allButtons.forEach(
+                            function(optionButton) {
 
-   *                            option*utton.disabled =
-                 *                  true;
+                                optionButton.disabled =
+                                    true;
 
-         *                  }
-              *         );
+                            }
+                        );
 
-                     *  quizResult.textContent =
-       *                    quiz.success;
-*                        quizResult*className =
-                      *     "quiz-result show-result succ*ss";
+                        quizResult.textContent =
+                            quiz.success;
 
-                    } else {*
-                        button.cl*ssList.add(
-                      *     "wrong-answer"
-              *         );
+                        quizResult.className =
+                            "quiz-result show-result success";
 
-                     *  button.disabled =
-              *             true;
+                    } else {
 
-              *         quizResult.textContent =
-*                           quiz.error;
+                        button.classList.add(
+                            "wrong-answer"
+                        );
+
+                        button.disabled =
+                            true;
+
+                        quizResult.textContent =
+                            quiz.error;
 
                         quizResult.className =
                             "quiz-result show-result error";
+
                     }
+
                 }
             );
 
             quizOptions.appendChild(
                 button
             );
+
         }
     );
+
 }
 
 /* =====================================================
