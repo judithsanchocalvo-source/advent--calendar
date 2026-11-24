@@ -875,7 +875,41 @@ header h1 {
         #84201f;
 }
 
+/* =====================================================
+   FOTOS DE LAS SORPRESAS
+===================================================== */
 
+.modal-image {
+    display: none;
+
+    width: 100%;
+    max-width: 380px;
+    max-height: 360px;
+
+    margin: 15px auto 22px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+
+    border: 6px solid #fffaf1;
+
+    box-shadow:
+        0 5px 18px
+        rgba(65, 42, 32, 0.22);
+}
+
+.modal-image.show-image {
+    display: block;
+}
+
+@media(max-width:520px) {
+
+    .modal-image {
+        max-height: 310px;
+    }
+
+}
 /* =====================================================
    MODAL BLOQUEADO
 ===================================================== */
@@ -1380,9 +1414,18 @@ footer {
 
 
     <div
-        class="modal-icon"
-        id="modalIcon"
-    >
+    class="modal-icon"
+    id="modalIcon"
+>
+    🎄
+</div>
+
+<img
+    id="modalImage"
+    class="modal-image"
+    src=""
+    alt=""
+>
         🎄
     </div>
 
@@ -1510,14 +1553,16 @@ Puerta 1 de 24. ❤️`
 
 2: {
 
-    icon: "Volvería a este momento ❤️",
+    icon: "📸",
 
-    title: "Día 2",
+    title: "Volvería a este momento 💕",
+
+    image: "door2.jpg",
 
     message:
 `Hay momentos que pasan sin que en ese instante te des cuenta de lo importantes que acabarán siendo.
 
-Este es uno de esos que guardaría una y otra vez. ❤️
+Este es uno de esos que guardaría una y otra vez. 💕
 
 Y si pudiera volver a él, volvería contigo.`
 
@@ -1815,7 +1860,10 @@ const modalIcon =
     document.getElementById(
         "modalIcon"
     );
-
+const modalImage =
+    document.getElementById(
+        "modalImage"
+    );
 const modalTitle =
     document.getElementById(
         "modalTitle"
@@ -1972,7 +2020,13 @@ function openDoor(day) {
             day +
             " de diciembre ❤️";
 
+modalImage.src = "";
 
+modalImage.alt = "";
+
+modalImage.classList.remove(
+    "show-image"
+);
         modal.classList.add(
             "show"
         );
@@ -1996,16 +2050,42 @@ function openDoor(day) {
 
 
     modalIcon.textContent =
-        surprise.icon;
+    surprise.icon;
+
+modalTitle.textContent =
+    surprise.title;
+
+modalMessage.textContent =
+    surprise.message;
 
 
-    modalTitle.textContent =
-        surprise.title;
+/*
+Mostrar foto si esta puerta tiene una imagen
+*/
 
+if (surprise.image) {
 
-    modalMessage.textContent =
-        surprise.message;
+    modalImage.src =
+        surprise.image;
 
+    modalImage.alt =
+        "Recuerdo del día " + day;
+
+    modalImage.classList.add(
+        "show-image"
+    );
+
+} else {
+
+    modalImage.src = "";
+
+    modalImage.alt = "";
+
+    modalImage.classList.remove(
+        "show-image"
+    );
+
+}
 
     /*
     Guardamos que esa puerta
