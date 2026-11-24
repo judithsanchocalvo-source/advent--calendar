@@ -1543,7 +1543,28 @@ footer {
         >
             Aquí aparecerá tu sorpresa.
         </p>
+<div
+    id="quizContainer"
+    class="quiz-container"
+>
 
+    <p
+        id="quizQuestion"
+        class="quiz-question"
+    ></p>
+
+    <div
+        id="quizOptions"
+        class="quiz-options"
+    ></div>
+
+    <div
+        id="quizResult"
+        class="quiz-result"
+    ></div>
+
+</div>
+        
         <a
     id="modalLink"
     class="surprise-link"
@@ -2036,6 +2057,25 @@ const modalTitle =
     const modalLink =
     document.getElementById(
         "modalLink"
+    );
+const quizContainer =
+    document.getElementById(
+        "quizContainer"
+    );
+
+const quizQuestion =
+    document.getElementById(
+        "quizQuestion"
+    );
+
+const quizOptions =
+    document.getElementById(
+        "quizOptions"
+    );
+
+const quizResult =
+    document.getElementById(
+        "quizResult"
     );
     
 const modalMessage =
