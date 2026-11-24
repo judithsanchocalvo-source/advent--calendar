@@ -2156,7 +2156,114 @@ function updateDoors() {
 
 }
 
+/* =====================================================
+   JUEGO DE PREGUNTAS
+===================================================== */
 
+function clearQuiz() {
+
+    qui*Container.classList.remove(
+      * "show-quiz"
+    );
+
+    quizQuest*on.textContent = "";
+
+    quizOpti*ns.innerHTML = "";
+
+    quizResult*textContent = "";
+
+    quizResult.*lassName =
+        "quiz-result";
+*
+
+
+function showQuiz(quiz) {
+
+    *learQuiz();
+
+    if (!quiz) {
+    *   return;
+    }
+
+    quizContaine*.classList.add(
+        "show-quiz*
+    );
+
+    quizQuestion.textCont*nt =
+        quiz.question;
+
+    c*nst letters =
+        ["A", "B", "C", "D"];
+
+    quiz.options.forEach*
+        function(option, index) {*
+            const button =
+      *         document.createElement(
+ *                  "button"
+       *        );
+
+            button.typ* =
+                "button";
+
+    *       button.className =
+        *       "quiz-option";
+
+           *button.textContent =
+             *  letters[index] +
+               *") " +
+                option;
+
+  *         button.addEventListener(
+*               "click",
+          *     function() {
+
+               *    const allButtons =
+           *            quizOptions.querySelec*orAll(
+                           *".quiz-option"
+                   *    );
+
+                    if (in*ex === quiz.correct) {
+
+          *             button.classList.add(*                            "corre*t-answer"
+                        *;
+
+                        allButt*ns.forEach(
+                      *     function(optionButton) {
+
+   *                            option*utton.disabled =
+                 *                  true;
+
+         *                  }
+              *         );
+
+                     *  quizResult.textContent =
+       *                    quiz.success;
+*                        quizResult*className =
+                      *     "quiz-result show-result succ*ss";
+
+                    } else {*
+                        button.cl*ssList.add(
+                      *     "wrong-answer"
+              *         );
+
+                     *  button.disabled =
+              *             true;
+
+              *         quizResult.textContent =
+*                           quiz.error;
+
+                        quizResult.className =
+                            "quiz-result show-result error";
+                    }
+                }
+            );
+
+            quizOptions.appendChild(
+                button
+            );
+        }
+    );
+}
 
 /* =====================================================
    ABRIR PUERTA
@@ -2255,7 +2362,14 @@ if (surprise.image) {
     );
 
 }
+    
+/*
+Mostrar juego si esta puerta tiene un quiz
+*/
 
+showQuiz(
+    surprise.quiz
+);
 
 /*
 Mostrar botón si esta puerta tiene un enlace
