@@ -916,6 +916,60 @@ header h1 {
         #84201f;
 }
 
+    /* =====================================================
+   BOTÓN PARA ENLACES / CANCIONES
+===================================================== */
+
+.surprise-link {
+
+    display: none;
+
+    width: fit-content;
+
+    margin: 8px auto 18px;
+
+    padding: 12px 24px;
+
+    background: #286144;
+
+    color: #fffaf2;
+
+    text-decoration: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 14px;
+
+    border: 1px solid #1f4c36;
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 4px 10px rgba(42, 32, 26, 0.18);
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.surprise-link:hover {
+
+    background: #1f4e36;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 14px rgba(42, 32, 26, 0.25);
+}
+
+
+.surprise-link.show-link {
+
+    display: block;
+
+}
 /* =====================================================
    FOTOS DE LAS SORPRESAS
 ===================================================== */
@@ -1490,6 +1544,15 @@ footer {
             Aquí aparecerá tu sorpresa.
         </p>
 
+        <a
+    id="modalLink"
+    class="surprise-link"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    ▶ Escuchar nuestra canción
+</a>
 
         <button
             class="modal-button"
@@ -1606,12 +1669,16 @@ Y si pudiera volver a él, volvería contigo.`
 
 3: {
 
-    icon: "🦌",
+    icon: "🎵",
 
-    title: "Día 3",
+    title: "Una canción para ti ❤️",
+
+    link: "https://www.youtube.com/watch?v=LJRA8UrlqCM&list=RDLJRA8UrlqCM&start_radio=1",
 
     message:
-`Aquí irá la sorpresa del 3 de diciembre.`
+`Hay canciones que simplemente escuchas y otras que inevitablemente te recuerdan a alguien.
+
+Esta es una de esas. ❤️`
 
 },
 
@@ -1904,6 +1971,11 @@ const modalTitle =
         "modalTitle"
     );
 
+    const modalLink =
+    document.getElementById(
+        "modalLink"
+    );
+    
 const modalMessage =
     document.getElementById(
         "modalMessage"
@@ -2122,37 +2194,58 @@ if (surprise.image) {
 
 }
 
-    /*
-    Guardamos que esa puerta
-    ya ha sido abierta.
-    */
 
-    localStorage.setItem(
+/*
+Mostrar botón si esta puerta tiene un enlace
+*/
 
-        "advent-door-" + day,
+if (surprise.link) {
 
-        "opened"
+    modalLink.href =
+        surprise.link;
 
+    modalLink.classList.add(
+        "show-link"
     );
 
+} else {
 
-    const door =
-        document.querySelector(
-            '[data-day="' + day + '"]'
-        );
+    modalLink.href = "#";
 
-
-    door.classList.add(
-        "opened"
-    );
-
-
-    modal.classList.add(
-        "show"
+    modalLink.classList.remove(
+        "show-link"
     );
 
 }
 
+
+/*
+Guardamos que esa puerta
+ya ha sido abierta.
+*/
+
+localStorage.setItem(
+    "advent-door-" + day,
+    "opened"
+);
+
+
+const door =
+    document.querySelector(
+        '[data-day="' + day + '"]'
+    );
+
+
+door.classList.add(
+    "opened"
+);
+
+
+modal.classList.add(
+    "show"
+);
+
+}
 
 
 /* =====================================================
