@@ -753,6 +753,66 @@ header h1 {
 }
 
 
+/* =====================================================
+   GALERÍA DE FOTOS - PUERTA 20
+===================================================== */
+
+.modal-gallery {
+    display: none;
+
+    width: 100%;
+    max-width: 430px;
+
+    margin: 18px auto 25px;
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.modal-gallery.show-gallery {
+    display: grid;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+
+    border: 5px solid #fffaf1;
+
+    box-shadow:
+        0 4px 12px
+        rgba(65, 42, 32, 0.20);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.gallery-image:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 7px 16px
+        rgba(65, 42, 32, 0.28);
+}
+
+@media(max-width:520px) {
+
+    .modal-gallery {
+        gap: 7px;
+    }
+
+    .gallery-image {
+        height: 135px;
+        border-width: 3px;
+    }
+
+}    
+
 @keyframes openCard {
 
     from {
@@ -1523,6 +1583,10 @@ footer {
             alt=""
         >
 
+        <div
+    id="modalGallery"
+    class="modal-gallery"
+></div>
 
         <h2
             class="modal-title"
@@ -2171,18 +2235,47 @@ Probablemente no vuelva a concederte semejante poder. 😂❤️`
 
 },
 
-
 20: {
 
-    icon: "🎁",
+    icon: "📸",
 
-    title: "Día 20",
+    title: "20 fotos para el día 20 ❤️",
 
     message:
-`Aquí irá la sorpresa del 20 de diciembre.`
+`Hoy no podía elegir solo una.
+
+Así que he elegido 20 pequeños pedacitos de nosotros: momentos bonitos, tonterías, planes, días normales y recuerdos que me gusta tener guardados.
+
+Algunas fotos serán mejores que otras 😂, pero todas tienen algo en común:
+
+en todas hay un poquito de nuestra historia. ❤️
+
+Y lo mejor es que esta colección todavía no está terminada.`,
+
+    gallery: [
+        "door20.jpg",
+        "door201.jpg",
+        "door202.jpg",
+        "door203.jpg",
+        "door204.jpg",
+        "door205.jpg",
+        "door206.jpg",
+        "door207.jpg",
+        "door208.jpg",
+        "door209.jpg",
+        "door210.jpg",
+        "door211.jpg",
+        "door212.jpg",
+        "door213.jpg",
+        "door214.jpg",
+        "door215.jpg",
+        "door216.jpg",
+        "door217.jpg",
+        "door218.jpg",
+        "door219.jpg"
+    ]
 
 },
-
 
 21: {
 
@@ -2262,6 +2355,11 @@ const modalIcon =
 const modalImage =
     document.getElementById(
         "modalImage"
+    );
+
+    const modalGallery =
+    document.getElementById(
+        "modalGallery"
     );
 const modalTitle =
     document.getElementById(
@@ -2533,7 +2631,16 @@ function showQuiz(quiz) {
 ===================================================== */
 
 function openDoor(day) {
+    
+/*
+Limpiar galería anterior al cambiar de puerta
+*/
 
+modalGallery.innerHTML = "";
+
+modalGallery.classList.remove(
+    "show-gallery"
+);
 
     /*
     Si aún no puede abrirse
@@ -2622,6 +2729,49 @@ if (surprise.image) {
 
     modalImage.classList.remove(
         "show-image"
+    );
+
+}
+
+    /*
+Mostrar galería si esta puerta tiene varias fotos
+*/
+
+modalGallery.innerHTML = "";
+
+modalGallery.classList.remove(
+    "show-gallery"
+);
+
+
+if (surprise.gallery) {
+
+    surprise.gallery.forEach(
+        function(photo, index) {
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+            img.src =
+                photo;
+
+            img.alt =
+                "Foto " + (index + 1) + " de nuestra galería";
+
+            img.className =
+                "gallery-image";
+
+            modalGallery.appendChild(
+                img
+            );
+
+        }
+    );
+
+    modalGallery.classList.add(
+        "show-gallery"
     );
 
 }
