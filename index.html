@@ -2202,19 +2202,20 @@ function updateDoors() {
 
 function clearQuiz() {
 
-    qui*Container.classList.remove(
-      * "show-quiz"
+    quizContainer.classList.remove(
+        "show-quiz"
     );
 
-    quizQuest*on.textContent = "";
+    quizQuestion.textContent = "";
 
-    quizOpti*ns.innerHTML = "";
+    quizOptions.innerHTML = "";
 
-    quizResult*textContent = "";
+    quizResult.textContent = "";
 
-    quizResult.*lassName =
+    quizResult.className =
         "quiz-result";
-*
+
+}
 
 
 function showQuiz(quiz) {
