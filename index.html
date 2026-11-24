@@ -1,19 +1,552 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Calendario de Adviento ❤️</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nuestro Calendario de Adviento ❤️</title>
+
+<style>
+
+/* ---------- GENERAL ---------- */
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:#f4eee4;
+    font-family:Georgia, "Times New Roman", serif;
+    color:#3b302b;
+}
+
+.page{
+    width:92%;
+    max-width:1050px;
+    margin:auto;
+    padding:45px 15px 70px;
+}
+
+
+/* ---------- CABECERA ---------- */
+
+header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+header h1{
+    margin:0;
+    color:#9e2525;
+    font-size:clamp(35px,6vw,58px);
+    font-weight:normal;
+}
+
+header p{
+    margin-top:12px;
+    color:#6f655d;
+    font-size:17px;
+}
+
+.little-star{
+    color:#c99c46;
+}
+
+
+/* ---------- MARCO DEL CALENDARIO ---------- */
+
+.calendar-frame{
+    background:#a81f1f;
+    padding:14px;
+    border-radius:5px;
+
+    box-shadow:
+        0 12px 30px rgba(72,42,32,.22),
+        inset 0 0 0 2px rgba(255,255,255,.12);
+
+    max-width:900px;
+    margin:auto;
+}
+
+
+/* ---------- CALENDARIO ---------- */
+
+.calendar{
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    grid-auto-rows:120px;
+
+    gap:8px;
+
+    background:#681717;
+
+    padding:8px;
+}
+
+
+/* ---------- PUERTAS ---------- */
+
+.door{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-radius:2px;
+
+    cursor:pointer;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.15),
+        0 2px 3px rgba(0,0,0,.25);
+
+    transition:
+        transform .2s ease,
+        filter .2s ease;
+}
+
+.door:hover{
+    transform:scale(1.025);
+    filter:brightness(1.07);
+    z-index:5;
+}
+
+
+/* muesca de cajón */
+
+.door::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-1px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:36px;
+    height:17px;
+
+    background:#681717;
+
+    border-radius:0 0 22px 22px;
+
+    z-index:3;
+}
+
+
+/* ---------- COLORES ---------- */
+
+.red{
+    background:#bd2925;
+    color:white;
+}
+
+.green{
+    background:#6f9366;
+    color:white;
+}
+
+.aqua{
+    background:#acd8d3;
+    color:#b3312b;
+}
+
+.cream{
+    background:#eee9dc;
+    color:#b3312b;
+}
+
+.grey{
+    background:#aaa7a0;
+    color:white;
+}
+
+.darkgreen{
+    background:#255b45;
+    color:white;
+}
+
+.charcoal{
+    background:#495357;
+    color:white;
+}
+
+
+/* ---------- NÚMEROS ---------- */
+
+.number{
+
+    position:absolute;
+
+    top:13px;
+    right:12px;
+
+    font-size:27px;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    font-weight:300;
+
+    z-index:2;
+}
+
+
+/* ---------- DECORACIÓN ---------- */
+
+.icon{
+
+    font-size:46px;
+
+    filter:
+        drop-shadow(
+            0 2px 1px rgba(0,0,0,.12)
+        );
+
+    user-select:none;
+}
+
+
+/* copos */
+
+.snow::after{
+
+    content:"✦  ❄  ·  ✦";
+
+    position:absolute;
+
+    bottom:10px;
+    left:10px;
+
+    font-size:13px;
+
+    color:rgba(255,255,255,.72);
+
+    letter-spacing:5px;
+}
+
+
+/* ---------- DISTINTOS TAMAÑOS ---------- */
+
+.wide{
+    grid-column:span 2;
+}
+
+.tall{
+    grid-row:span 2;
+}
+
+.big{
+    grid-column:span 2;
+    grid-row:span 2;
+}
+
+
+/* ---------- MENSAJE FINAL ---------- */
+
+.footer-message{
+
+    text-align:center;
+
+    margin-top:30px;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    color:#866e60;
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media(max-width:800px){
+
+    .calendar{
+
+        grid-template-columns:repeat(4,1fr);
+
+        grid-auto-rows:115px;
+
+    }
+
+}
+
+
+/* ---------- MÓVIL ---------- */
+
+@media(max-width:520px){
+
+    .page{
+        width:97%;
+        padding:30px 6px 50px;
+    }
+
+    header h1{
+        font-size:36px;
+    }
+
+    header p{
+        font-size:15px;
+        padding:0 15px;
+    }
+
+    .calendar-frame{
+        padding:7px;
+    }
+
+    .calendar{
+
+        grid-template-columns:repeat(3,1fr);
+
+        grid-auto-rows:105px;
+
+        gap:5px;
+
+        padding:5px;
+
+    }
+
+    .big,
+    .wide{
+
+        grid-column:span 2;
+
+    }
+
+    .icon{
+        font-size:37px;
+    }
+
+    .number{
+        font-size:22px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <h1>🎄 Nuestro Calendario de Adviento 🎄</h1>
+<div class="page">
 
-  <p>
-    24 días, 24 pequeñas sorpresas ❤️
-  </p>
+
+<header>
+
+    <h1>
+        Nuestro Calendario de Adviento
+        <span class="little-star">✦</span>
+    </h1>
+
+    <p>
+        24 días · 24 pequeñas sorpresas para ti ❤️
+    </p>
+
+</header>
+
+
+
+<div class="calendar-frame">
+
+<div class="calendar">
+
+
+<!-- 1 -->
+<div class="door red snow">
+    <span class="number">1</span>
+    <span class="icon">⛄</span>
+</div>
+
+
+<!-- 2 -->
+<div class="door aqua">
+    <span class="number">2</span>
+    <span class="icon">❄️</span>
+</div>
+
+
+<!-- 3 -->
+<div class="door grey wide snow">
+    <span class="number">3</span>
+    <span class="icon">🦌</span>
+</div>
+
+
+<!-- 4 -->
+<div class="door green tall">
+    <span class="number">4</span>
+    <span class="icon">🌲</span>
+</div>
+
+
+<!-- 5 -->
+<div class="door aqua">
+    <span class="number">5</span>
+    <span class="icon">🎄</span>
+</div>
+
+
+<!-- 6 -->
+<div class="door darkgreen tall">
+    <span class="number">6</span>
+    <span class="icon">🍬</span>
+</div>
+
+
+<!-- 7 -->
+<div class="door grey">
+    <span class="number">7</span>
+    <span class="icon">🧦</span>
+</div>
+
+
+<!-- 8 -->
+<div class="door red wide snow">
+    <span class="number">8</span>
+    <span class="icon">🧁</span>
+</div>
+
+
+<!-- 9 -->
+<div class="door cream">
+    <span class="number">9</span>
+    <span class="icon">🐦</span>
+</div>
+
+
+<!-- 10 -->
+<div class="door cream">
+    <span class="number">10</span>
+    <span class="icon">🦌</span>
+</div>
+
+
+<!-- 11 -->
+<div class="door grey wide">
+    <span class="number">11</span>
+    <span class="icon">🌲 🦌</span>
+</div>
+
+
+<!-- 12 -->
+<div class="door aqua big">
+    <span class="number">12</span>
+    <span class="icon">🎄</span>
+</div>
+
+
+<!-- 13 -->
+<div class="door red">
+    <span class="number">13</span>
+    <span class="icon">⛄</span>
+</div>
+
+
+<!-- 14 -->
+<div class="door cream">
+    <span class="number">14</span>
+    <span class="icon">🍃</span>
+</div>
+
+
+<!-- 15 -->
+<div class="door green">
+    <span class="number">15</span>
+    <span class="icon">🏠</span>
+</div>
+
+
+<!-- 16 -->
+<div class="door red">
+    <span class="number">16</span>
+    <span class="icon">🎄</span>
+</div>
+
+
+<!-- 17 -->
+<div class="door grey">
+    <span class="number">17</span>
+    <span class="icon">🎀</span>
+</div>
+
+
+<!-- 18 -->
+<div class="door aqua">
+    <span class="number">18</span>
+    <span class="icon">🌲</span>
+</div>
+
+
+<!-- 19 -->
+<div class="door green">
+    <span class="number">19</span>
+    <span class="icon">🔔</span>
+</div>
+
+
+<!-- 20 -->
+<div class="door cream tall">
+    <span class="number">20</span>
+    <span class="icon">🎁</span>
+</div>
+
+
+<!-- 21 -->
+<div class="door charcoal wide">
+    <span class="number">21</span>
+    <span class="icon">✨ 🎄 ✨</span>
+</div>
+
+
+<!-- 22 -->
+<div class="door darkgreen wide">
+    <span class="number">22</span>
+    <span class="icon">🎅</span>
+</div>
+
+
+<!-- 23 -->
+<div class="door aqua">
+    <span class="number">23</span>
+    <span class="icon">🧝</span>
+</div>
+
+
+<!-- 24 -->
+<div class="door grey tall snow">
+    <span class="number">24</span>
+    <span class="icon">🎅</span>
+</div>
+
+
+</div>
+</div>
+
+
+<div class="footer-message">
+
+    Hecho con ♥ especialmente para ti
+
+</div>
+
+
+</div>
 
 </body>
 </html>
